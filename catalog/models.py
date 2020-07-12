@@ -28,6 +28,8 @@ class Book(models.Model):
     # Genre class has already been defined so we can specify the object above.
     genre   = models.ManyToManyField(Genre, help_text='Select a genre for this book')
 
+    language = models.ForeignKey("Language", on_delete=models.SET_NULL, null=True)
+
     def __str__(self):
         """String for representing the Model object."""
         return self.title
@@ -84,3 +86,19 @@ class Author(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.last_name}, {self.first_name}'
+
+class Language(models.Model):
+    """Model representing a language"""
+
+    LANGUAGE_ENUM = [
+        ("EN","English"),
+        ("FR","French"),
+        ("ES","Spanish"),
+        ("DE","German"),
+        ("JA","Japanese")
+    ]
+    name = models.CharField(max_length=2, choices=LANGUAGE_ENUM, help_text="Language written in")
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return f'{self.name}'
