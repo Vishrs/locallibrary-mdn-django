@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "/home/pintu/.virtualenvs/my_django_environment/bin/python"
+    "python.pythonPath": "/home/pintu/.virtualenvs/my_django_environment/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
